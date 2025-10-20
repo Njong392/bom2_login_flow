@@ -35,6 +35,7 @@ export class ProductPage {
     productprice_input_identifier = '[name="price"]'
     productreference_input_identifier = '[name="productExtId"]'
     productdescription_input_identifier = '[name="description"]'
+    quanity_input_identifier = '[name="quantity"]'
     attachments_identifier = '[data-testid="dropzone"]'
     attachments_input_identifier = '[data-testid="dropzone-input"]'
     singleAttachment = pageContent.imagePaths.singleImage
@@ -43,6 +44,7 @@ export class ProductPage {
     customization_dropdown_identifier = '#panel1d-header p.css-17rgji7'
     name_error = pageContent.products.nameError
     price_error = pageContent.products.priceError
+    price_below_min_error = pageContent.products.priceBelowMinError
     reference_error = pageContent.products.refError
     description_error = pageContent.products.descError
     upload_error = pageContent.products.fileUploadError
@@ -75,6 +77,10 @@ export class ProductPage {
         ca.verifyTextWithinElement(this.helper_identifier, this.price_error)
     }
 
+    verifyPriceBelowMinError() {
+        ca.verifyTextWithinElement(this.helper_identifier, this.price_below_min_error)
+    }
+
     verifyRefError() {
         ca.verifyTextWithinElement(this.helper_identifier, this.reference_error)
     }
@@ -91,12 +97,28 @@ export class ProductPage {
         ca.enterValueInField(this.productprice_input_identifier, value)
     }
 
+    checkPriceLessthanMinPrice(value){
+        ca.verifyValueIsLessThanLimit(this.productprice_input_identifier, value)
+    }
+
     enterReference(value) {
         ca.enterValueInField(this.productreference_input_identifier, value)
     }
 
     enterDescription(value) {
         ca.enterValueInField(this.productdescription_input_identifier, value)
+    }
+
+    enterQuantity(value){
+        ca.enterValueInField(this.quanity_input_identifier, value)
+    }
+
+    checkIfPriceInputHasValue(value){
+        ca.checkIfHasValue(this.productprice_input_identifier, value)
+    }
+
+    checkIfQuantityInputHasValue(value){
+        ca.checkIfHasValue(this.quanity_input_identifier, value)
     }
 
     checkAttachmentInputExists() {

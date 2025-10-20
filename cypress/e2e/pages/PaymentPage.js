@@ -11,9 +11,10 @@ export class PaymentPage{
     total_identifier = 'div[data-testid="table-order-content-row"]:nth-of-type(4) span'
     alert_amount_identifier = '[role="alert"]'
     increment_identifier = '.plus'
+    decrement_identifier = '.minus'
     phonenumber_input = '[data-testid="text-input"]'
     submit_identifier = '[data-testid="submit-button"]'
-    mtn_psp_identifier = '[data-testid="payment-method-picker-item"]'
+    psp_identifier = '[data-testid="payment-method-picker-item"]'
     customer_name_identifier = '[data-cy="input-mandatory"]'
     pay_dialog_identifier = '[data-testid="dialog"]'
 
@@ -41,6 +42,14 @@ export class PaymentPage{
         ca.verifyValueIsLessThanLimit(this.quantity_identifier, value)
     }
 
+    checkIncrementButtonAddsCounter(){
+        ca.IncrementCounter(this.quantity_identifier, this.increment_identifier)
+    }
+
+    checkDecrementButtonSubtractsCounter(){
+        ca.DecrementCounter(this.quantity_identifier, this.decrement_identifier, this.increment_identifier)
+    }
+
     checkAlertAmountAppears(){
         ca.verifyWebElementExists(this.alert_amount_identifier)
     }
@@ -66,16 +75,26 @@ export class PaymentPage{
     }
 
     clickOnMTNPSP(){
-        ca.clickOnFirstElement(this.mtn_psp_identifier)
+        ca.clickOnFirstElement(this.psp_identifier)
+    }
+
+    clickOnOrangePSP(){
+        ca.clickOnSecondElement(this.psp_identifier)
     }
 
     checkSubmitButtonIsDisabled(){
         ca.checkIfDisabled(this.submit_identifier)
     }
 
-    enterVerificationOfPaymentDetails(){
+    enterVerificationOfMTNPaymentDetails(){
         this.clickOnMTNPSP()
         this.enterPhoneNumber(ca.generateRandomPhoneNumberWithPrefix())
+        this.clickSubmit()
+    }
+
+     enterVerificationOfOrangePaymentDetails(){
+        this.clickOnOrangePSP()
+        this.enterPhoneNumber(ca.generateRandomOrangePhoneNumberWithPrefix())
         this.clickSubmit()
     }
 

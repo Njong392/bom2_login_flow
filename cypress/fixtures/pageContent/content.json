@@ -9,8 +9,11 @@
     "products": {
         "name": "Shoes",
         "nameError": "Required",
+        "minPrice": 100,
+        "belowMinPrice": 20,
         "price": 1000,
         "priceError": "Required",
+        "priceBelowMinError": "Price of a product must not be less than 100 FCFA",
         "reference": "Adidas",
         "refError": "Required",
         "description": "Just shoes",

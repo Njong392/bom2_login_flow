@@ -79,7 +79,7 @@ export class CommonActions {
     }
 
     // generate 6 figures between 0-9
-     generatePhoneNumber() {
+    generatePhoneNumber() {
         let contactNumber = '';
         for (let i = 0; i <= 5; i++) {
             contactNumber += Math.floor(Math.random() * 10);
@@ -88,21 +88,67 @@ export class CommonActions {
         return contactNumber
     }
 
-    // add prefixes to the generated number
+    // add MTN prefixes to the generated number
     generateRandomPhoneNumberWithPrefix() {
-    const prefix = "679";
-    const randomNumber = this.generatePhoneNumber();
-    return `${prefix}${randomNumber}`;
-  }
+        const prefix = "679";
+        const randomNumber = this.generatePhoneNumber();
+        return `${prefix}${randomNumber}`;
+    }
 
-  // click on specific element in an array
-  clickOnFirstElement(webelement_identifier){
-    cy.get(webelement_identifier).eq(0).click()
-  }
+    // add Orange prefixes to the generated number
+    generateRandomOrangePhoneNumberWithPrefix() {
+        const prefix = "699";
+        const randomNumber = this.generatePhoneNumber();
+        return `${prefix}${randomNumber}`;
+    }
 
-  // checking if element is disabled
-  checkIfDisabled(webelement_identifier){
-    cy.get(webelement_identifier).should('be.disabled')
-  }
+    // click on first element in an array
+    clickOnFirstElement(webelement_identifier) {
+        cy.get(webelement_identifier).eq(0).click()
+    }
+
+    // click on second element in the array
+    clickOnSecondElement(webelement_identifier){
+        cy.get(webelement_identifier).eq(1).click()
+    }
+
+    // checking if element is disabled
+    checkIfDisabled(webelement_identifier) {
+        cy.get(webelement_identifier).should('be.disabled')
+    }
+
+    // check if input has value
+    checkIfHasValue(webelement_identifier, expectedValue){
+        cy.get(webelement_identifier).should('have.value', expectedValue)
+    }
+
+    // Increments a counter
+    IncrementCounter(counter_identifier, incrementbutton_identifier){
+        cy.get(counter_identifier).invoke('val').then(counterValue => {
+            const initialValue = parseInt(counterValue, 10)
+
+            cy.get(incrementbutton_identifier).click()
+
+            cy.get(counter_identifier).invoke('val').then(counterValue => {
+                const newCount = parseInt(counterValue, 10)
+                expect(newCount).to.eq(initialValue + 1)
+            })
+        })
+    }
+
+    // Decrements a counter
+    DecrementCounter(counter_identifier, decrementbutton_identifier, increment_identifier){
+        this.IncrementCounter(counter_identifier, increment_identifier)
+        cy.get(counter_identifier).invoke('val').then(counterValue => {
+            const initialValue = parseInt(counterValue, 10)
+
+            cy.get(decrementbutton_identifier).click()
+
+            cy.get(counter_identifier).invoke('val').then(counterValue => {
+                const newCount = parseInt(counterValue, 10)
+                expect(newCount).to.eq(initialValue - 1)
+            })
+        })
+    }
 
 }

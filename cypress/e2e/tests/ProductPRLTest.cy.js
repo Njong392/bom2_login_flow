@@ -1,9 +1,12 @@
 import { LoginPage } from "../pages/LoginPage"
 import { ProductPage } from "../pages/ProductPage"
+import { PaymentPage } from "../pages/PaymentPage"
 
 const pageContent = require('../../fixtures/pageContent/content.json')
 const loginPage = new LoginPage()
 const prodPage = new ProductPage()
+const paymentPage = new PaymentPage()
+
 
 describe('Product PRL Test', () => {
     beforeEach(() => {
@@ -96,6 +99,57 @@ describe('Product PRL Test', () => {
         })
         prodPage.clickOnSaveProduct()
         prodPage.verifyDescError()
+    })
+
+    it('Verifies that the price field can only accept numbers', () => {
+        // navigate to product page after login and click to create product
+        prodPage.clickOnProductMenuItem()
+        prodPage.clickOnCreateProduct()
+        // Attempt to enter letters in the price field
+        cy.get('@pageContent').then(pageContent => {
+            prodPage.enterProductPrice(pageContent.products.name)
+        })
+        // check if the price field is empty
+        prodPage.checkIfPriceInputHasValue('')
+
+    })
+
+    it('Verifies that the quantity field can only accept numbers', () => {
+        // navigate to product page after login and click to create product
+        prodPage.clickOnProductMenuItem()
+        prodPage.clickOnCreateProduct()
+
+        // check that the customization button and click
+        prodPage.checkCustomizationDropDownExists()
+        prodPage.clickCustomizationDropDown()
+
+        // Attempt to enter letters in the price field
+        cy.get('@pageContent').then(pageContent => {
+            prodPage.enterQuantity(pageContent.products.name)
+        })
+
+        // check if the price field is empty
+        prodPage.checkIfQuantityInputHasValue('')
+
+    })
+
+    it('Verifies that the user cannot input a price less than 100', () => {
+         // navigate to product page after login and click to create product
+        prodPage.clickOnProductMenuItem()
+        prodPage.clickOnCreateProduct()
+
+         // Enter all fields and a price less than 100 in the price field
+        cy.get('@pageContent').then(pageContent => {
+            prodPage.enterProductPrice(pageContent.products.belowMinPrice)
+            prodPage.enterProductName(pageContent.products.name)
+            prodPage.enterReference(pageContent.products.reference)
+            prodPage.enterDescription(pageContent.products.description)
+        })
+
+        // submit the form and check for error on the field
+        prodPage.clickOnSaveProduct()
+        prodPage.verifyPriceBelowMinError
+
     })
 
     it('Fills in the form and checks if success popup opens on save and goes to payment page', () => {
