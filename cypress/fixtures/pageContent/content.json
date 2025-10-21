@@ -1,49 +1,49 @@
 {
-    "urls": {
-        "loginUrl": "https://adminbom.smobilpay.integration.maviance.info/login",
-        "homeUrl": "https://adminbom.smobilpay.integration.maviance.info/",
-        "productPageUrl": "/product",
-        "createProductUrl": "/product/create",
-        "paymentPageUrl": "https://prlpaymentwebui.smobilpay.integration.maviance.info/product/b32ae163-c6bb-4091-8dbe-5edcb799d3c0"
-    },
-    "products": {
-        "name": "Shoes",
-        "nameError": "Required",
-        "minPrice": 100,
-        "belowMinPrice": 20,
-        "price": 1000,
-        "priceError": "Required",
-        "priceBelowMinError": "Price of a product must not be less than 100 FCFA",
-        "reference": "Adidas",
-        "refError": "Required",
-        "description": "Just shoes",
-        "descError": "Required",
-        "fileUploadError": "Too many files to upload"
-    },
-    "imagePaths": {
-        "singleImage": "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 115652.png",
-        "fiveImages": [
-            "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 115652.png",
-            "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 122926.png",
-            "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 142354.png",
-            "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 142425.png",
-            "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 142755.png"
-        ],
-        "sixImages": [
-            "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 115652.png",
-            "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 122926.png",
-            "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 142354.png",
-            "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 142425.png",
-            "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 142755.png",
-            "C:/Users/maviance/Pictures/Screenshots/Animation.gif"
-        ]
-    },
-    "prodDetails": {
-        "product": "Shoes",
-        "quantity": 1,
-        "price": "2 500&nbsp;FCFA",
-        "total": "2500",
-        "zeroQuantity": 0,
-        "customerName": "Emy"
-    }
+  "urls": {
+    "loginUrl": "https://adminbom.smobilpay.integration.maviance.info/login",
+    "homeUrl": "https://adminbom.smobilpay.integration.maviance.info/",
+    "productPageUrl": "/product",
+    "createProductUrl": "/product/create",
+    "paymentPageUrl": "https://goto.maviance.info/v1/uJLtAngvg"
+  },
+  "products": {
+    "name": "Shoes",
+    "nameError": "Required",
+    "minPrice": 100,
+    "belowMinPrice": 20,
+    "price": 1000,
+    "priceError": "Required",
+    "priceBelowMinError": "Price of a product must not be less than 100 FCFA",
+    "reference": "Adidas",
+    "refError": "Required",
+    "description": "Just shoes",
+    "descError": "Required",
+    "fileUploadError": "Too many files to upload"
+  },
+  "imagePaths": {
+    "singleImage": "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 115652.png",
+    "fiveImages": [
+      "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 115652.png",
+      "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 122926.png",
+      "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 142354.png",
+      "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 142425.png",
+      "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 142755.png"
+    ],
+    "sixImages": [
+      "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 115652.png",
+      "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 122926.png",
+      "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 142354.png",
+      "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 142425.png",
+      "C:/Users/maviance/Pictures/Screenshots/Screenshot 2025-10-14 142755.png",
+      "C:/Users/maviance/Pictures/Screenshots/Animation.gif"
+    ]
+  },
+  "prodDetails": {
+    "product": "Shoes",
+    "quantity": 1,
+    "price": "2 500&nbsp;FCFA",
+    "total": "2500",
+    "zeroQuantity": 0,
+    "customerName": "Emy"
+  }
 }

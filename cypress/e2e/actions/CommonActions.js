@@ -151,4 +151,30 @@ export class CommonActions {
         })
     }
 
+    // Visit a dynamic link
+    visitDynamicPRL(webelement_identifier, fixtureFilePath='cypress/fixtures/pageContent/content.json'){
+
+        return cy.get(webelement_identifier)
+
+            .invoke('attr', 'href')
+
+            .then(newUrl => {
+
+                cy.visit(newUrl)
+
+                // read existing file content
+                return cy.readFile(fixtureFilePath).then(config => {
+
+                    // modify the existing url to new one
+                    config.urls.paymentPageUrl = newUrl
+
+                    // write the object back to the file
+                    return cy.writeFile(fixtureFilePath, config)
+
+                })
+
+            })
+
+    }
+
 }

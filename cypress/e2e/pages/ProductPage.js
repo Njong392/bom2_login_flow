@@ -154,7 +154,7 @@ export class ProductPage {
     qrcode_identifier = '.css-t91eww'
     prl_identifier = '.css-12u3292'
     file_copy_identifier = '[data-testid="FileCopyIcon"]'
-    payment_page_url = pageContent.urls.paymentPageUrl
+    payment_page_url = '.css-12u3292'
 
     checkSuccessPopupExists() {
         ca.verifyWebElementExists(this.success_popup_identifier)
@@ -170,7 +170,7 @@ export class ProductPage {
     }
 
     clickPRL() {
-        ca.clickonWebElement(this.prl_identifier)
+        ca.visitDynamicPRL(this.prl_identifier)
     }
 
     checkFileCopyExists() {

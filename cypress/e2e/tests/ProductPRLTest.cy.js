@@ -1,11 +1,9 @@
 import { LoginPage } from "../pages/LoginPage"
 import { ProductPage } from "../pages/ProductPage"
-import { PaymentPage } from "../pages/PaymentPage"
 
 const pageContent = require('../../fixtures/pageContent/content.json')
 const loginPage = new LoginPage()
 const prodPage = new ProductPage()
-const paymentPage = new PaymentPage()
 
 
 describe('Product PRL Test', () => {

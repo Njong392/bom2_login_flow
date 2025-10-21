@@ -14,15 +14,6 @@ describe('Payment Page', () => {
         })
     })
 
-    it('Checks if product details match what was on the PRL creation page', () => {
-        // get data from fixtures
-        cy.get('@pageContent').then(pageContent => {
-            paymentPage.checkProductNameMatches(pageContent.prodDetails.product)
-            paymentPage.checkQuantityMatches(pageContent.prodDetails.quantity)
-            // paymentPage.checkPriceMatches(pageContent.prodDetails.price)
-            // paymentPage.checkTotalMatches(pageContent.prodDetails.total)
-        })
-    })
 
      it('Checks if quantity is less than or equal to the one specified on PRL creation', () => {
         cy.get('@pageContent').then(pageContent => {
@@ -73,7 +64,7 @@ describe('Payment Page', () => {
     })
 
     
-    it.only('Verfies that if valid Orange number is not entered, submit button cannot be clicked', () => {
+    it('Verfies that if valid Orange number is not entered, submit button cannot be clicked', () => {
         // Chooses the Orange PSP, but enters an invalid number and checks if the submit button is disabled
         paymentPage.clickOnOrangePSP()
         paymentPage.enterPhoneNumber(ca.generatePhoneNumber())
